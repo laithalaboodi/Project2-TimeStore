@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class NavbarComponentComponent implements OnInit {
 
 
-
+  classText:String= "login_btn";
+  // cButton: String  = "login_btn";
   loginText: String = "Login";
   signupText: String = "SignUp";
   updateText: String = "Update User Info";
