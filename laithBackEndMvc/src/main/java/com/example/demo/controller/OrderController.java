@@ -43,7 +43,8 @@ public class OrderController {
 	
 	@PostMapping("/createorder")
 	public Orders createOrder(Watch watch, Buyer buyer) {
-		Orders o = oServ.createOrder(watch, buyer);
+		Orders o = new Orders(watch,buyer);
+		
 		return o;
 		//Buyer b = bServ.displayUser(Integer.parseInt(Buyer.getEmail()));
 	}

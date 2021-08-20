@@ -48,9 +48,7 @@ public class OrderServices {
 		else {
 			return o;
 		}
-		
-	}
-
+	
 	public Orders createOrder(Watch watch, Buyer buyer) {
 		Orders o = new Orders(buyer, watch);
 		return o;

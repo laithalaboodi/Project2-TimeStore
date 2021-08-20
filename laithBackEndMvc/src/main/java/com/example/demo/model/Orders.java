@@ -48,10 +48,18 @@ public class Orders {
 	@JoinColumn( nullable = false)
 	private Watch watchorderholder;
 
-	public Orders(Buyer orderholder, Watch watchorderholder) {
+	public Orders(Watch watchorderholder, Buyer orderholder) {
 		super();
 		this.orderholder = orderholder;
 		this.watchorderholder = watchorderholder;
 	}
+	
+
+	public Orders(int orderId) {
+		super();
+		this.orderId = orderId;
+	
+	}
+
 	
 }
