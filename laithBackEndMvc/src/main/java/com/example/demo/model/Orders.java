@@ -37,6 +37,9 @@ public class Orders {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private  int orderId;
 	
+	@Column(nullable = false)
+	private String buyerEmail;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( nullable = false)
 	private Buyer orderholder;

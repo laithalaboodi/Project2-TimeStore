@@ -21,14 +21,14 @@ public class OrderServices {
 
 	
 	public List<Orders> displayOrders() {
-		List<Orders> o = oDao.returnAll();
+		List<Orders> o = oDao.findAll();
 		if (o == null) {
 			return null;
 		}
 		else {
 			return o;
 		}
-	}
+	} 
 	
 	public Orders getByOrderId(int id) {
 		Orders o = oDao.findByOrderId(id);
@@ -39,7 +39,7 @@ public class OrderServices {
 			return o;
 		}
 		
-	}/*
+	}
 	public Orders getByBuyerEmail(String email) {
 		Orders o = oDao.findByBuyerEmail(email);
 		if (o == null) {
@@ -48,13 +48,11 @@ public class OrderServices {
 		else {
 			return o;
 		}
-		
-	}*/
-	/*
+	
 	public Orders createOrder(Watch watch, Buyer buyer) {
 		Orders o = new Orders(buyer, watch);
 		return o;
-	}*/
+	}
 }
 
 
