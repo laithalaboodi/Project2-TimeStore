@@ -39,19 +39,16 @@ public class Orders {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( nullable = false)
-	private Buyer orderholder;
+	private Buyer orderHolder;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn( nullable = false)
-	private Watch watchorderholder;
+	private Watch watchOrderHolder;
 
 	public Orders(Buyer orderholder, Watch watchorderholder) {
 		super();
-		this.orderholder = orderholder;
-		this.watchorderholder = watchorderholder;
+		this.orderHolder = orderholder;
+		this.watchOrderHolder = watchorderholder;
 	}
-	
-
-
 	
 }
