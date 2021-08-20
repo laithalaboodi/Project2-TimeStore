@@ -1,15 +1,15 @@
 <h1 class="mx-auto row col-12 justify-content-center text-center p-5 " style="width: 600px">WELCOME TO TIME-STORE</h1>    
 <div class="container">
-    <div class="d-flex justify-content-center h-100">
+    <div class="d-flex justify-content-center p-5 h-100">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body shadow" >
 
-<form id="update" (ngSubmit)="onSubmit()">
-    <div class="float:left margin-right:20px pt-3 ">
+<form id="update"  (ngSubmit)="onSubmit()">
+    <div class="float:left margin-right:20px pt-3 " >
         <label for="email">Email:</label>
-    <div class="update-input">
+    <div class="">
         <input type="text"
-            class="create-user"
+            class=""
             name="email"
             [(ngModel)]="email"
             cols="50"
@@ -19,7 +19,7 @@
     </div>
     <div class="float:left margin-right:20px pt-3 ">
         <label for="password">Password:</label>
-    <div class="update-input">
+    <div class="">
         <input type="text"
             class="create-user"
             name="password"
