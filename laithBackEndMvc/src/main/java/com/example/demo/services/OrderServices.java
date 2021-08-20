@@ -39,7 +39,7 @@ public class OrderServices {
 			return o;
 		}
 		
-	}
+	}/*
 	public Orders getByBuyerEmail(String email) {
 		Orders o = oDao.findByBuyerEmail(email);
 		if (o == null) {
@@ -49,12 +49,12 @@ public class OrderServices {
 			return o;
 		}
 		
-	}
-	
+	}*/
+	/*
 	public Orders createOrder(Watch watch, Buyer buyer) {
 		Orders o = new Orders(buyer, watch);
 		return o;
-	}
+	}*/
 }
 
 
