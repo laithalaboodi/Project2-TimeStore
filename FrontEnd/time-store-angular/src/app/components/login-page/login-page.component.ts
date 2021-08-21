@@ -25,12 +25,14 @@ export class LoginPageComponent implements OnInit {
    
 
     this.userService.login(this.email, this.password)    
-    .subscribe(data => {console.log(data)
-     //his.userService.user.id = data.user.id;
-     //this.userService.user.email=data.user.email;
+    .subscribe(data => {
+      
+      console.log(data)
+    this.userService.user.id = data.id;
+    this.userService.user.email=data.email;
      
      
-     //console.log(data)
+
 
      this.error = false;
      this.router.navigateByUrl('');

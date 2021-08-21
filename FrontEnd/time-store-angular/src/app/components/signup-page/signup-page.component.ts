@@ -23,20 +23,20 @@ export class SignupPageComponent implements OnInit {
 
     
   onSubmit(): void{
-    console.log(
-      this.firstName,
-      this.lastName,
-      this.email,
-      this.password
-      )
+    // console.log(
+    //   this.firstName,
+    //   this.lastName,
+    //   this.email,
+    //   this.password
+    //   )
    
 
     this.userService.signup( this.firstName, this.lastName, this.email, this.password)    
     .subscribe(data => {console.log(data)
      
-      console.log(data.user.id)
-   // save loggined buyer id  in local storage 
-   this.localStorageService.setItem( "id"  ,   JSON.stringify(data.user.id) );
+
+this.userService.user.id = data.id
+this.userService.user.email = data.email
    this.error = false;
    this.router.navigateByUrl('');
   },
