@@ -11,4 +11,5 @@ import com.example.demo.model.Watch;
 	public interface WatchRepository extends JpaRepository<Watch, Integer>{
 
 		Optional<Watch> findByBrand(String brand);
+		Optional<Watch> findByDiscription(String discription);
 	}
