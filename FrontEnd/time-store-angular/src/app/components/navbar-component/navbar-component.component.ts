@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/User';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-navbar-component',
   templateUrl: './navbar-component.component.html',
@@ -15,8 +16,18 @@ export class NavbarComponentComponent implements OnInit {
   // cButton: String  = "login_btn";
   loginText: String = "Login";
   signupText: String = "SignUp";
+
+  
+
+username:String =  this.userService.user.email? this.userService.user.email: "Guest";
+
+
   updateText: String = "Update User Info";
-  wishlistText: String = "Wishlist";
+
+  reviewOrderText:String ="Review Orders";
+
+  LogoutText:String = " LogOut"
+
 
   directTologinpage():void{
 
@@ -36,7 +47,25 @@ this.router.navigateByUrl('/login');
     
       }
 
-  constructor(private router:Router) { }
+
+
+      directToReviewPage():void{
+
+
+ this.router.navigateByUrl('/reviewOrders');
+
+      }
+
+      directToHomePageAfterLogOut():void{
+
+        this.userService.user.id = 0;
+
+        let win = (window as any);
+        win.location.reload();
+
+      }
+
+  constructor(private router:Router, private userService:UserService, ) { }
 
   ngOnInit( ): void {
   }

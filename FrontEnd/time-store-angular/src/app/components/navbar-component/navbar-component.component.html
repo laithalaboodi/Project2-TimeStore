@@ -2,4 +2,7 @@
 <app-button-component [class] = "classText" [text]="loginText"    (onClickEmittor)="directTologinpage()"          ></app-button-component>
 <app-button-component  [text]="signupText" (onClickEmittor)="directToRegisterPage()"         ></app-button-component>
 <app-button-component  [text]="updateText"    (onClickEmittor)="directUpdatePage()"          ></app-button-component>
+<app-button-component  [text]="reviewOrderText"    (onClickEmittor)="directToReviewPage()"          ></app-button-component>
+<app-button-component  [text]="LogoutText"    (onClickEmittor)="directToHomePageAfterLogOut()"          ></app-button-component>
 
+<p>Username: {{this.username}}</p>

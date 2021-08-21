@@ -23,20 +23,18 @@ export class UpdateUserInfoPageComponent implements OnInit {
      
   onSubmit(): void{
     console.log(
-      this.id,
+      this.userService.user.id,
       this.email,
       this.password
       )
    
 
-    this.userService.update(this.id, this.email, this.password)    
-    .subscribe(data => {console.log(data)
+    this.userService.update(this.userService.user.id, this.email, this.password)    
+    .subscribe(data => {
+      
+      console.log(data)
      
-      console.log(data.user.id)
-   // save loggined buyer id  in local storage 
-   this.localStorageService.setItem( "id"  ,   JSON.stringify(data.user.id) );
-   this.error = false;
-   this.router.navigateByUrl('');
+
   },
     (error) => this.error = true);
 }

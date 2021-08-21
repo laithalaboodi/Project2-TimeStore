@@ -27,7 +27,7 @@
   ],
   "orders": [
     {
-      "user": 5,
+      "user": 1,
       "watch": 1,
       "id": 1
     },
@@ -35,6 +35,16 @@
       "user": 1,
       "watch": 2,
       "id": 2
+    },
+    {
+      "user": 1,
+      "watch": 1,
+      "id": 3
+    },
+    {
+      "user": 1,
+      "watch": 2,
+      "id": 4
     }
   ]
 }

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { Watch } from 'src/app/Watch';
 
-import { Order } from 'src/app/Order';
+
 @Component({
   selector: 'app-watch-items-container',
   templateUrl: './watch-items-container.component.html',
