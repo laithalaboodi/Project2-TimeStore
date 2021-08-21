@@ -35,6 +35,8 @@ public class Watch {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int watchid;
 	@Column(nullable=false)
+	private String brand;
+	@Column(nullable=false)
 	private int price;
 	@Column( nullable = false)
 	private  String discription;
@@ -45,9 +47,10 @@ public class Watch {
 	@JsonIgnore
 	private List<Orders>ordersList = new ArrayList<Orders>();
 
-	public Watch(int price, String discription, String picName, List<Orders> ordersList) {
+	public Watch(int price,String brand, String discription, String picName, List<Orders> ordersList) {
 		super();
 		this.price = price;
+		this.brand = brand;
 		this.discription = discription;
 		this.picName = picName;
 		this.ordersList = ordersList;

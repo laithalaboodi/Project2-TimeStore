@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Watch;
-import com.example.demo.repository.WatchRepository;
+import com.example.demo.repos.WatchRepository;
 
 @Service
 public class WatchService {
@@ -30,7 +30,7 @@ public class WatchService {
 		watchRepository.save(watch);
 	}
 	
-	public void deleteStudent(Integer watchid) {
+	public void deleteWatch(Integer watchid) {
 		boolean exists = watchRepository.existsById(watchid);
 		if(!exists) {
 			throw new IllegalStateException("watch doesn't exist");

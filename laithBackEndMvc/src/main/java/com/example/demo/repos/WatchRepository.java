@@ -1,4 +1,4 @@
-package com.example.demo.repository;
+package com.example.demo.repos;
 
 import java.util.Optional;
 
@@ -9,7 +9,7 @@ import com.example.demo.model.Watch;
 
 @Repository
 	public interface WatchRepository extends JpaRepository<Watch, Integer>{
-		//SELECT * FROM student WHERE email = ?
 		Optional<Watch> findById(int watchid);
 		Optional<Watch> findByDescription(String discription);
+		Optional<Watch> findByBrand(String brand);
 	}

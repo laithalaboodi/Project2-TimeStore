@@ -22,7 +22,7 @@ public class WatchController {
 		this.watchService = watchService;
 	}
 	
-	@GetMapping
+	@GetMapping("/getwatches")
 	public List<Watch> getWatches(){
 		return watchService.getWatchs();
 	}
