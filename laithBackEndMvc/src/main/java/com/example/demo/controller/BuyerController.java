@@ -66,9 +66,9 @@ public class BuyerController {
 		}
 		return new ResponseEntity<Buyer>(u, HttpStatus.OK);
 	}
-	
+	//I can change this to find user by id if needed
 	@GetMapping("/{email}")
-	public ResponseEntity<Buyer> getUser(@PathVariable("username")String email){
+	public ResponseEntity<Buyer> getUser(@PathVariable("email")String email){
 		Buyer u = uServ.displayUser(email);
 		if(u == null) {
 			return new ResponseEntity<Buyer>(u, HttpStatus.NOT_FOUND);
