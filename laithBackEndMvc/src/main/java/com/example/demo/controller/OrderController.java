@@ -49,13 +49,17 @@ public class OrderController {
 		//Buyer b = bServ.displayUser(Integer.parseInt(Buyer.getEmail()));
 	}
 	
+//	@GetMapping("/findorder")
+//	public ResponseEntity<Orders> getOrder(@PathVariable("orderId")int orderId){
+//		Orders o = oServ.getByOrderId(orderId);
+//		if(o == null) {
+//			return new ResponseEntity<Orders>(o, HttpStatus.NOT_FOUND);
+//		}
+//		return new ResponseEntity<Orders>(o, HttpStatus.OK);
+//	}
 	@GetMapping("/findorder")
-	public ResponseEntity<Orders> getOrder(@PathVariable("orderId")int orderId){
-		Orders o = oServ.getByOrderId(orderId);
-		if(o == null) {
-			return new ResponseEntity<Orders>(o, HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<Orders>(o, HttpStatus.OK);
+	public Orders getOrder(@PathVariable("orderId") int orderId) {		
+			return oServ.getByOrderId(orderId);		
 	}
 	
 	
