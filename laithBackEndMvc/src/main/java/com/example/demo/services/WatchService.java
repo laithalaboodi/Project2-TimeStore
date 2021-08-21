@@ -23,7 +23,7 @@ public class WatchService {
 	}
 	
 	public void addNewWatch(Watch watch) {
-		Optional<Watch> watchOptional = watchRepository.findByDescription(watch.getDiscription());
+		Optional<Watch> watchOptional = watchRepository.findByDiscription(watch.getDiscription());
 		if(watchOptional.isPresent()) {
 			throw new IllegalStateException("watch already exists");
 		}
