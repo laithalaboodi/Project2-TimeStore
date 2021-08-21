@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Watch;
-import com.example.demo.service.WatchService;
+import com.example.demo.services.WatchService;
 
 @RestController
 @RequestMapping(value="/watches")
