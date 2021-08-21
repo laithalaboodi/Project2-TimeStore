@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,15 +32,17 @@ import com.example.demo.model.Buyer;
 import com.example.demo.repos.BuyerRepo;
 import com.example.demo.services.BuyerService;
 //import com.example.demo.validator.BuyerValidator;
+import com.example.demo.services.WatchService;
 
 @RestController
 @RequestMapping(value="/buyer")
 @AllArgsConstructor(onConstructor=@__(@Autowired))
-@NoArgsConstructor
+//@NoArgsConstructor
 @CrossOrigin(origins="*")
 public class BuyerController {
 	
 	private BuyerService uServ;
+	private final BuyerService buyerService;
 	/*
 	@InitBinder()
 	protected void initBinder(WebDataBinder binder) {
@@ -74,6 +77,10 @@ public class BuyerController {
 			return new ResponseEntity<Buyer>(u, HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Buyer>(u, HttpStatus.OK);
+	}
+	@PutMapping("/{buyer}")
+	public void updateBuyer(Buyer buyer) {
+	updateBuyer(buyer);
 	}
 	/*
 	@PostMapping("/validate")

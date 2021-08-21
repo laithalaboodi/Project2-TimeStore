@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.model.Buyer;
 import com.example.demo.repos.BuyerRepo;
+import com.example.demo.repos.WatchRepository;
 
 import lombok.NoArgsConstructor;
 
@@ -14,12 +15,17 @@ import lombok.AllArgsConstructor;
 
 
 @Service
-@NoArgsConstructor
+//@NoArgsConstructor
 @AllArgsConstructor(onConstructor=@__(@Autowired))
 public class BuyerService {
-
+	private final BuyerRepo buyerRepo;
 	private BuyerRepo uDao;
 	
+	
+	@Autowired
+	public BuyerService(BuyerRepo buyerRepo) {
+		this.buyerRepo = buyerRepo;
+	}
 	public boolean registerUser(Buyer u) {
 		try {
 			uDao.save(u);
