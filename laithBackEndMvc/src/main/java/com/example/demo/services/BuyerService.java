@@ -23,12 +23,11 @@ public class BuyerService {
 
 	private BuyerRepo uDao;
 	
-	public boolean registerUser(Buyer u) {
+	public Buyer registerUser(Buyer u) {
 		try {
-			uDao.save(u);
-			return true;
+			return uDao.save(u);
 		} catch(Exception e) {
-			return false;
+			return null;
 		}
 	}
 	
@@ -60,7 +59,6 @@ public class BuyerService {
 			return u;
 		}
 	}
-	//not needed as model doesnt take care of id
 	
 	public Buyer getUserById(int id) {
 		return uDao.getById(id);

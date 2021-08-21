@@ -49,14 +49,16 @@ public class BuyerController {
 	}*/
 
 	@PostMapping("/register")
-	public ResponseEntity<String> createUser(@RequestBody LinkedHashMap<String, String> buyer){
+	public ResponseEntity<Buyer> createUser(@RequestBody LinkedHashMap<String, String> buyer){
 		System.out.println(buyer);
 		Buyer u = new Buyer(buyer.get("first"), buyer.get("last"), buyer.get("email"), buyer.get("pass"));
-		if(uServ.registerUser(u)) {
-			return new ResponseEntity<>("User was registered", HttpStatus.CREATED);
+		u = uServ.registerUser(u);
+		
+		if(u != null) {
+			return new ResponseEntity<Buyer>(u, HttpStatus.CREATED);
 		}
 		else {
-			return new ResponseEntity<>("Username or email already registered to a user", HttpStatus.CONFLICT);
+			return new ResponseEntity<Buyer>(u, HttpStatus.CONFLICT);
 		}
 	}
 	
