@@ -22,6 +22,10 @@ public class WatchService {
 		return watchRepository.findAll();
 	}
 	
+	public Watch getWatch(int id) {
+		return watchRepository.getById(id);
+	}
+	
 	public void addNewWatch(Watch watch) {
 		Optional<Watch> watchOptional = watchRepository.findByDescription(watch.getDiscription());
 		if(watchOptional.isPresent()) {
