@@ -1,0 +1,43 @@
+<p>review-order-container works!</p>
+
+<div   *ngFor="let watch of (watches| async)"    > 
+    
+
+
+
+
+</div>
+
+
+
+<table class="table table-striped w-auto">
+
+    <!--Table head-->
+    <thead>
+        <tr>
+            <!-- using watch id as order number for test; back end should send back real order  -->
+           <!-- which has watch info and order number -->
+            <th>Order Number</th>
+            <th>Watch Name</th>
+            <th>Watch Price</th>
+            <th>Watch Description</th>
+           
+        </tr>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody>
+        <tr class="table-info"   *ngFor="let watch of (watches| async)"   >
+            <th scope="row">{{watch.id}}</th>
+            <td>{{watch.name}}</td>
+            <td>{{watch.price}}</td>
+            <td>{{watch.description}}</td>
+            
+        </tr>
+       
+    </tbody>
+    <!--Table body-->
+
+
+</table>
