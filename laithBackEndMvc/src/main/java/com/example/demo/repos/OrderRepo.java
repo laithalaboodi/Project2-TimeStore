@@ -13,6 +13,6 @@ import com.example.demo.model.Orders;
 public interface OrderRepo extends JpaRepository<Orders, Integer>{
   
 	public List<Orders> findAll();
-	public Orders findByBuyerEmail(String email);
+	//public Orders findByBuyerEmail(String email);
 	public Orders findByOrderId(int id);
 }

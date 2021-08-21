@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.LinkedHashMap;
 
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import lombok.NoArgsConstructor;
 
 
 import com.example.demo.model.Buyer;
+import com.example.demo.model.Orders;
 import com.example.demo.repos.BuyerRepo;
 import com.example.demo.services.BuyerService;
 //import com.example.demo.validator.BuyerValidator;
@@ -75,6 +77,16 @@ public class BuyerController {
 		}
 		return new ResponseEntity<Buyer>(u, HttpStatus.OK);
 	}
+	
+	@PostMapping("/reviewOrders")
+	public ResponseEntity<List<Orders>> reviewOrders(@RequestBody LinkedHashMap<String, String> buyer){
+		List<Orders> orders =uServ.getBuyerOrders(Integer.parseInt(buyer.get("buyerid")));
+		if(orders == null) {
+			return new ResponseEntity<List<Orders>>(orders, HttpStatus.FORBIDDEN);
+		}
+		return new ResponseEntity<List<Orders>>(orders, HttpStatus.OK);
+	}
+	
 	/*
 	@PostMapping("/validate")
 	public ResponseEntity<String> validateUser(@RequestBody @Valid Buyer u, BindingResult result){

@@ -41,6 +41,7 @@ public class OrderServices {
 		}
 		
 	}
+	/*
 	public Orders getByBuyerEmail(String email) {
 		Orders o = oDao.findByBuyerEmail(email);
 		if (o == null) {
@@ -49,11 +50,13 @@ public class OrderServices {
 		else {
 			return o;
 		}
-	}
+	}*/
 	
-	public Orders createOrder(Watch watch, Buyer buyer) {
-		Orders o = new Orders(watch, buyer);
-		return o;
+	public void createOrder(Orders order) {
+		oDao.save(order);
+		/*Orders o = new Orders(watch, buyer);
+		return o;*/
+	//	return null;
 	}
 }
 

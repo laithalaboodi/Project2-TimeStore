@@ -2,6 +2,8 @@ package com.example.demo.services;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.model.Buyer;
@@ -11,6 +13,7 @@ import lombok.NoArgsConstructor;
 
 import lombok.AllArgsConstructor;
 
+import com.example.demo.model.Orders;
 
 
 @Service
@@ -58,10 +61,16 @@ public class BuyerService {
 		}
 	}
 	//not needed as model doesnt take care of id
-	/*
+	
 	public Buyer getUserById(int id) {
 		return uDao.getById(id);
-	}*/
+	}
 	
+	
+	public List<Orders> getBuyerOrders(int buyerid){
+        Buyer u = uDao.getById(buyerid);
+
+        return u.getOrdersList();
+    }
 	
 }

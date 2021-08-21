@@ -71,11 +71,11 @@ public class Buyer {
 		this.pass = pass;
 	}
 
-
+/*
 	public Buyer(List<Orders> ordersList) {
 		super();
 		this.ordersList = ordersList;
-	}
+	}*/
 
 
 
