@@ -28,9 +28,9 @@ public class WatchController {
 		return watchService.getWatchs();
 	}
 	
-	@GetMapping("/getwatch/{watchid}")
+	/*@GetMapping("/getwatch/{watchid}")
 	public Watch getWatch(@PathVariable("watchid") int id) {
 		return watchService.getWatch(id);
-	}
+	}*/
 
 }

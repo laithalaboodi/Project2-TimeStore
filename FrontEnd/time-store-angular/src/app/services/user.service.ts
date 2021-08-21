@@ -25,7 +25,7 @@ export class UserService {
 
     let headers = new HttpHeaders();
 headers = headers.set('Content-Type', 'application/json');
-    return this.http.post<any>("http://localhost:3000/login", JSON.stringify({ "email":email,  "password":password}) ,{headers}  )
+    return this.http.post<any>("http://localhost:8080/buyer/login", JSON.stringify({ "email":email,  "pass":password}) ,{headers}  )
     .pipe(catchError((e)=>{
       return throwError(e);
     }));
