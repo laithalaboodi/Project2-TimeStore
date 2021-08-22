@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 
 import com.example.demo.model.Buyer;
 import com.example.demo.model.Orders;
@@ -19,7 +21,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class OrderServices {
 	private OrderRepo oDao;
-
 	
 	public List<Orders> displayOrders() {
 		List<Orders> o = oDao.findAll();
@@ -58,6 +59,7 @@ public class OrderServices {
 		return o;*/
 	//	return null;
 	}
+	
 }
 
 
