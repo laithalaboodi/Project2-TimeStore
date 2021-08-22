@@ -48,7 +48,7 @@ headers = headers.set('Content-Type', 'application/json');
     console.log(id, email, password)
     let headers = new HttpHeaders();
 headers = headers.set('Content-Type', 'application/json');
-    return this.http.post<any>("http://localhost:8080/buyer/update", JSON.stringify({id, email,  password}) ,{headers}  )
+    return this.http.post<any>("http://localhost:8080/buyer/update", JSON.stringify({ "buyerid" :  id,"newemail" :email, "newpass": password}) ,{headers}  )
     .pipe(catchError((e)=>{
       return throwError(e);
     }));

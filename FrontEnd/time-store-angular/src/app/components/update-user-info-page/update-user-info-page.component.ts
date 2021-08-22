@@ -34,7 +34,11 @@ export class UpdateUserInfoPageComponent implements OnInit {
       
       
       console.log(data)
-     
+      this.userService.user.id = data.id
+      this.userService.user.email = data.email
+         this.error = false;
+         alert(`Your new Email and password are: ${this.userService.user.email}, ${data.pass} `);
+         this.router.navigateByUrl('');
 
   },
     (error) => this.error = true);

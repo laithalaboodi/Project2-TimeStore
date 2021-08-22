@@ -1,10 +1,21 @@
-<div>
-<p>{{watch.id}}</p>
-<p>{{watch.name}}</p>
+<!-- <div class="container">
+<p>{{watch.brand}}</p>
+<p>{{watch.price}}</p>
 <p>{{watch.price}}</p>
 <p>{{watch.description}}</p>
 
-<app-button-component  text="Buy"   (onClickEmittor)="performOnbuy()"  ></app-button-component>
 
-<!-- <app-button-component  text="Wishlist" ></app-button-component> -->
-</div>
+
+<app-button-component  text="Wishlist" ></app-button-component>
+</div> -->
+
+
+
+
+    <div class="col-sm-4 p-3">
+        <img src = "{{    watch.picName }} "   alt="">
+            <p>Branch: {{watch.brand}} </p>
+            <p>Price: {{watch.price}} </p>
+            <p>Description: {{watch.discription}} </p>  
+            <app-button-component  text="Buy"   (onClickEmittor)="performOnbuy()"  ></app-button-component>
+    </div>

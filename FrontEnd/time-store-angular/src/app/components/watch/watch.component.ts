@@ -21,10 +21,11 @@ export class WatchComponent implements OnInit {
 
 
 @Input() watch:Watch = { 
-  id:0,
-  name: "",
+  watchid:0,
+  brand: "",
   price:0,
-  description: ""
+  discription: "",
+  picName:""
 };
 
 userId:number = 0 ;
@@ -48,11 +49,11 @@ performOnbuy():void {
   }
   
   const order:Order = {
-      user : this.userId , //  if user id is zero then no user in the local storage
+    buyerid: this.userId , 
       
-      watch : this.watch.id
+    watchid : this.watch.watchid
   }
-  
+ 
   this.OrderService.addOrder(order);
   console.log('button work')
  }

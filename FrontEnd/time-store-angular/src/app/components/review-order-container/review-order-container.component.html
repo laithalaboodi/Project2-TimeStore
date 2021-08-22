@@ -1,12 +1,12 @@
 <p>review-order-container works!</p>
 
-<div   *ngFor="let watch of (watches| async)"    > 
+<!-- <div   *ngFor="let order of (orders| async)"    > 
     
 
 
 
 
-</div>
+</div> -->
 
 
 
@@ -15,10 +15,9 @@
     <!--Table head-->
     <thead>
         <tr>
-            <!-- using watch id as order number for test; back end should send back real order  -->
-           <!-- which has watch info and order number -->
+         
             <th>Order Number</th>
-            <th>Watch Name</th>
+            <th>Watch Brand</th>
             <th>Watch Price</th>
             <th>Watch Description</th>
            
@@ -28,11 +27,11 @@
 
     <!--Table body-->
     <tbody>
-        <tr class="table-info"   *ngFor="let watch of (watches| async)"   >
-            <th scope="row">{{watch.id}}</th>
-            <td>{{watch.name}}</td>
-            <td>{{watch.price}}</td>
-            <td>{{watch.description}}</td>
+        <tr class="table-info"   *ngFor="let order of (orders| async)"   >
+            <th scope="row">{{order.orderId}}</th>
+            <td>{{order.watchorderholder.brand}}</td>
+            <td>{{order.watchorderholder.price}}</td>
+            <td>{{order.watchorderholder.discription}}</td>
             
         </tr>
        
