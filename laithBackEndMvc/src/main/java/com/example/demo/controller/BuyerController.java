@@ -65,21 +65,42 @@ public class BuyerController {
 	@PostMapping("/login")
 	public ResponseEntity<Buyer> loginUser(@RequestBody LinkedHashMap<String, String> buyer){
 		Buyer u = uServ.loginUser(buyer.get("email"), buyer.get("pass"));
+		
+		
 		if(u == null) {
 			return new ResponseEntity<Buyer>(u, HttpStatus.FORBIDDEN);
 		}
 		return new ResponseEntity<Buyer>(u, HttpStatus.OK);
 	}
-	//I can change this to find user by id if needed
-	@GetMapping("/{email}")
-	public ResponseEntity<Buyer> getUser(@PathVariable("email")String email){
-		Buyer u = uServ.displayUser(email);
+	
+	
+	
+	@PostMapping("/update")
+	public ResponseEntity<Buyer>  updateBuyerCredentials(@RequestBody LinkedHashMap<String, String> buyer){
+		
+		Buyer u = uServ.updateBuyer(  Integer.parseInt(buyer.get("buyerid")) ,  buyer.get("newemail"), buyer.get("newpass"));
+		
 		if(u == null) {
-			return new ResponseEntity<Buyer>(u, HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Buyer>(u, HttpStatus.FORBIDDEN);
 		}
 		return new ResponseEntity<Buyer>(u, HttpStatus.OK);
 	}
 	
+	
+	
+	
+	
+	
+	//I can change this to find user by id if needed
+//	@GetMapping("/{email}")
+//	public ResponseEntity<Buyer> getUser(@PathVariable("email")String email){
+//		Buyer u = uServ.displayUser(email);
+//		if(u == null) {
+//			return new ResponseEntity<Buyer>(u, HttpStatus.NOT_FOUND);
+//		}
+//		return new ResponseEntity<Buyer>(u, HttpStatus.OK);
+//	}
+//	
 	@PostMapping("/reviewOrders")
 	public ResponseEntity<List<Orders>> reviewOrders(@RequestBody LinkedHashMap<String, String> buyer){
 		List<Orders> orders =uServ.getBuyerOrders(Integer.parseInt(buyer.get("buyerid")));
@@ -88,6 +109,7 @@ public class BuyerController {
 		}
 		return new ResponseEntity<List<Orders>>(orders, HttpStatus.OK);
 	}
+	
 	
 	/*
 	@PostMapping("/validate")

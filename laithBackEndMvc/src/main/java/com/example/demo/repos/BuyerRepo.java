@@ -10,6 +10,7 @@ import com.example.demo.model.Buyer;
 public interface BuyerRepo extends JpaRepository<Buyer, Integer> {
 	
 	public List<Buyer> findAll();
-	Buyer findByEmail(String email);
+	public   Buyer findByEmail(String email);
+	public Buyer findById(int id);
 	
 }
