@@ -98,7 +98,7 @@ import com.example.demo.services.OrderServices;
 	        //pServ.createPost(p);
 	        Orders newOrder = new Orders(w,u); 
 	        oServ.createOrder(newOrder);
-	        triggerMail( u.getEmail(),"You order Info: "+ w.getBrand() + " Total: $" + w.getPrice() ," Thank you for your order!");
+	        triggerMail(u.getEmail(),"Dear "+u.getFirst()+" "+u.getLast()+",\n"+"Thank you for your order"+"\n"+"You order Info: "+ w.getBrand() + " Total: $" + w.getPrice() ," Order Complete!");
 	        return new ResponseEntity<String>("Order created successfully", HttpStatus.CREATED);
 		}
 		
