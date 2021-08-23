@@ -1,7 +1,7 @@
 export interface Order{
-    id?: number ;
-   user: number;
-    watch:number;
+    id?: Number ;
+    buyerid:Number;
+    watchid:Number;
     
     
     

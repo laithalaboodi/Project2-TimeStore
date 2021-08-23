@@ -1,2 +1,10 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";   
+@font-face {
+    font-family: Lato;
+    src: url(assets/fonts/Lato-Bold.ttf) format('truetype');
+}
 
+.Lato {
+    font-family: Lato;
+}

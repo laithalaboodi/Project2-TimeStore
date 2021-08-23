@@ -35,6 +35,7 @@ export class LoginPageComponent implements OnInit {
 
 
      this.error = false;
+     alert(`You are loggened as ${this.userService.user.email}`)
      this.router.navigateByUrl('');
 
 

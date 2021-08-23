@@ -38,6 +38,7 @@ export class SignupPageComponent implements OnInit {
 this.userService.user.id = data.id
 this.userService.user.email = data.email
    this.error = false;
+   alert(`Welcome ${this.userService.user.email}`);
    this.router.navigateByUrl('');
   },
     (error) => this.error = true);

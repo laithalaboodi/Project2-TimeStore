@@ -1,24 +1,26 @@
-<p>review-order-container works!</p>
+<h1 class="mx-auto row col-12 justify-content-center text-center p-5 Lato " style="width: 620px">WELCOME TO TIME-STORE</h1>    
 
-<div   *ngFor="let watch of (watches| async)"    > 
+<!-- <div   *ngFor="let order of (orders| async)"    > 
     
 
 
 
 
-</div>
+</div> -->
 
 
-
-<table class="table table-striped w-auto">
+<div class="container">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-body shadow">
+<table class="table table-striped w-auto border">
 
     <!--Table head-->
     <thead>
         <tr>
-            <!-- using watch id as order number for test; back end should send back real order  -->
-           <!-- which has watch info and order number -->
+         
             <th>Order Number</th>
-            <th>Watch Name</th>
+            <th>Watch Brand</th>
             <th>Watch Price</th>
             <th>Watch Description</th>
            
@@ -28,11 +30,11 @@
 
     <!--Table body-->
     <tbody>
-        <tr class="table-info"   *ngFor="let watch of (watches| async)"   >
-            <th scope="row">{{watch.id}}</th>
-            <td>{{watch.name}}</td>
-            <td>{{watch.price}}</td>
-            <td>{{watch.description}}</td>
+        <tr class="table-info"   *ngFor="let order of (orders| async)"   >
+            <th scope="row">{{order.orderId}}</th>
+            <td>{{order.watchorderholder.brand}}</td>
+            <td>{{order.watchorderholder.price}}</td>
+            <td>{{order.watchorderholder.discription}}</td>
             
         </tr>
        

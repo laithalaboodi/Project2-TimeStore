@@ -1,9 +1,10 @@
 export interface Watch{
 
-id: number ;
-name: String;
-price:number;
-description:String;
+    watchid: number ;
+    brand: String;
+   price:number;
+   discription:String;
+picName:String;
 
 
 

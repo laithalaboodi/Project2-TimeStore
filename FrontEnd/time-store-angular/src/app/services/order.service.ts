@@ -7,7 +7,7 @@ import {catchError} from 'rxjs/operators';
 import { Order } from 'src/app/Order';
 import { Watch } from '../Watch';
 
-
+import { PurchsedOrder} from '../PurchasedOrders';
 
 @Injectable({
   providedIn: 'root'
@@ -17,26 +17,25 @@ export class OrderService {
   constructor(private http: HttpClient,) { }
 
   //orders hold array of watches were bought
-  orders: Watch[] = [];
-  subject: Subject< Watch[]> = new Subject< Watch[]>();
+  orders:PurchsedOrder[] = [];
+  subject: Subject<PurchsedOrder[]> = new Subject< PurchsedOrder[]>();
 
 
-  addOrder(order: Order): void{
+  addOrder( order:Order ): void{
    
 
-    let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-       });
+    let headers = new HttpHeaders();
   
-      let options = { headers: headers };
+    headers = headers.set('Content-Type', 'application/json');
 
 
-
+//console.log(JSON.stringify(order))
     
 
-    this.http.post('http://localhost:3000/orders', JSON.stringify(order),  options )
+    this.http.post('http://ec2-18-223-255-99.us-east-2.compute.amazonaws.com:8080/orders/createorder',JSON.stringify({ "buyerid":order.buyerid,  "watchid": order.watchid })    ,  { headers } )
     .pipe(
       catchError((e)=>{
+        console.log(e)
         return throwError(e);
       }))
       .subscribe(
@@ -91,7 +90,7 @@ export class OrderService {
     //   )
 
 //===========for my test server
-    this.http.get<Watch[]>('http://localhost:3000/watches',  options )
+    this.http.post<PurchsedOrder[]>('http://ec2-18-223-255-99.us-east-2.compute.amazonaws.com:8080/buyer/reviewOrders',   JSON.stringify( { "buyerid": buyerId})   , options )
     .pipe(
       catchError((e)=>{
         return throwError(e);

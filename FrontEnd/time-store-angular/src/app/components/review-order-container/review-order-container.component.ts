@@ -5,8 +5,9 @@ import { OrderService } from 'src/app/services/order.service';
 
 import { UserService } from 'src/app/services/user.service'; 
 import { Observable } from 'rxjs';
-import { Order } from 'src/app/Order';
-import { Watch } from 'src/app/Watch';
+
+
+import { PurchsedOrder } from 'src/app/PurchasedOrders';
 
 @Component({
   selector: 'app-review-order-container',
@@ -16,7 +17,7 @@ import { Watch } from 'src/app/Watch';
 export class ReviewOrderContainerComponent implements OnInit {
 
  
-  watches: Observable<Watch[]> = new Observable<Watch[]>();
+ orders: Observable<PurchsedOrder[]> = new Observable<PurchsedOrder[]>();
  
  
  
@@ -35,7 +36,7 @@ console.log("i will call order service to get past orders")
 // call order service to get past orders
 
 this.OrderService.reviewOrders(this.userService.user.id);
-this.watches = this.OrderService.subject;
+this.orders = this.OrderService.subject;
 
 
   }
