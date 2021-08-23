@@ -22,7 +22,7 @@ export class WatchService {
   //to get the user id to get the saved wishlist(the watch item added to wishlist but not being bought yet) store in local service
   constructor( private http: HttpClient  ) { }
   getWatches(){
-    this.http.get<Watch[]>('http://ec2-18-223-255-99.us-east-2.compute.amazonaws.com/watches/get')
+    this.http.get<Watch[]>('http://ec2-18-223-255-99.us-east-2.compute.amazonaws.com:8080/watches/get')
     .pipe(
       catchError((e)=> {
         return throwError(e);

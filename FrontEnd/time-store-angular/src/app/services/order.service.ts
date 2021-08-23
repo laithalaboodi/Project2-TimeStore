@@ -32,7 +32,7 @@ export class OrderService {
 //console.log(JSON.stringify(order))
     
 
-    this.http.post('http://ec2-18-223-255-99.us-east-2.compute.amazonaws.com/orders/createorder',JSON.stringify({ "buyerid":order.buyerid,  "watchid": order.watchid })    ,  { headers } )
+    this.http.post('http://ec2-18-223-255-99.us-east-2.compute.amazonaws.com:8080/orders/createorder',JSON.stringify({ "buyerid":order.buyerid,  "watchid": order.watchid })    ,  { headers } )
     .pipe(
       catchError((e)=>{
         console.log(e)
@@ -90,7 +90,7 @@ export class OrderService {
     //   )
 
 //===========for my test server
-    this.http.post<PurchsedOrder[]>('http://ec2-18-223-255-99.us-east-2.compute.amazonaws.com/buyer/reviewOrders',   JSON.stringify( { "buyerid": buyerId})   , options )
+    this.http.post<PurchsedOrder[]>('http://ec2-18-223-255-99.us-east-2.compute.amazonaws.com:8080/buyer/reviewOrders',   JSON.stringify( { "buyerid": buyerId})   , options )
     .pipe(
       catchError((e)=>{
         return throwError(e);

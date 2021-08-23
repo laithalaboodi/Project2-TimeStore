@@ -2,13 +2,17 @@
 
 <div class="container">
     <div class="row">
-        <app-watch   *ngFor="let watch of (watches| async)" [watch]="watch"     ></app-watch>
+        <app-watch   *ngFor="let watch of (watches| async)" class="col-md-4 p-5" [watch]="watch"  ></app-watch>
        
     </div>
 </div>
 
 
-   
+<!-- <div class="row">
+     <div *ngFor="let url of urls" class="col-md-4"> 
+         <img [src]="url" alt="Image" height="250px" width="350px" (click)="imageClick(url)"> 
+    </div>
+</div> -->
 
  
 
