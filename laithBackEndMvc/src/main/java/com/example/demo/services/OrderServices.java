@@ -53,8 +53,8 @@ public class OrderServices {
 		}
 	}*/
 	
-	public void createOrder(Orders order) {
-		oDao.save(order);
+	public Orders createOrder(Orders order) {
+ 	return	oDao.save(order);
 		/*Orders o = new Orders(watch, buyer);
 		return o;*/
 	//	return null;

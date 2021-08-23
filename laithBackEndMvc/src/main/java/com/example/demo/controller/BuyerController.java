@@ -94,6 +94,9 @@ public class BuyerController {
 		if(u == null) {
 			return new ResponseEntity<Buyer>(u, HttpStatus.FORBIDDEN);
 		}
+		 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY @ HH:mm:ss"); 
+		 LocalDateTime now = LocalDateTime.now();
+		triggerMail(u.getEmail(),"Dear "+u.getFirst()+" "+u.getLast()+",\n"+"You updated your info: "+dtf.format(now)+"\nNew Email: "+u.getEmail()+"\nNew Password: "+u.getPass(),"Time Store Account Update");
 		return new ResponseEntity<Buyer>(u, HttpStatus.OK);
 	}
 	

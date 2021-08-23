@@ -91,15 +91,15 @@ import com.example.demo.services.OrderServices;
 			//Buyer b = bServ.displayUser(Integer.parseInt(Buyer.getEmail()));
 		}*/
 		@PostMapping("/createorder")
-		public ResponseEntity<String> createPost(@RequestBody LinkedHashMap<String, String> order){
+		public ResponseEntity<Orders> createPost(@RequestBody LinkedHashMap<String, String> order){
 	        Buyer u = bServ.getUserById(Integer.parseInt(order.get("buyerid")));
 	        Watch w = wServ.getWatch(Integer.parseInt(order.get("watchid")));
 	        //Post p = new Post(u, post.get("content"));
 	        //pServ.createPost(p);
 	        Orders newOrder = new Orders(w,u); 
-	        oServ.createOrder(newOrder);
+	    newOrder =  oServ.createOrder(newOrder);
 	        triggerMail(u.getEmail(),"Dear "+u.getFirst()+" "+u.getLast()+",\n"+"Thank you for your order"+"\n"+"You order Info: "+ w.getBrand() + " Total: $" + w.getPrice() ," Order Complete!");
-	        return new ResponseEntity<String>("Order created successfully", HttpStatus.CREATED);
+	        return new ResponseEntity<Orders>(newOrder, HttpStatus.OK);
 		}
 		
 		/*
